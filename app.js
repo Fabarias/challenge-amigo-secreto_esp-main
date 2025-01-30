@@ -40,4 +40,5 @@ function agregarAmigo() {
         
         nombre.value = "";
     }
+    return;
 }
