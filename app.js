@@ -52,15 +52,18 @@ function agregarAmigo() {
 }
 
 function sortearAmigo() {
+    // Verifica que la cantidad de amigos sea mínima de 2 para sortear
     if (friendsList.length < 2) {
         changes("subtitle","Debe haber mínimo 2 nombres para jugar","red");
         return;
     }
+        // Entrega el nombre del amigo que salio elegido al azar
         changes("subtitle","Digite el nombre de sus amigos","rgba(75, 105, 253, 1)");
         let amigo = friendsList[Math.floor(Math.random() * friendsList.length)];
         changes("resultado",`El amigo secreto es: ${amigo}`,"green");
 } 
 
+// Función que vacia la lista actual para crear otra nueva
 function reiniciarLista() {
     let ul = document.getElementById("listaAmigos");
     ul.textContent = "";
