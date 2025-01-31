@@ -6,9 +6,13 @@ function changes(id,content,color) {
     let element = document.getElementById(id);
 
     if (!element) {
-        console.error(`Elemento con ID '${id} no encontrado`);
-    } else if (id.toLowerCase().includes = "input") {
+        console.error(`Elemento con ID '${id}' no encontrado`);
+
+    } else if (id.toLowerCase().includes == "input") {
         element.placeholder = content;
+        element.style.color = color;
+    } else {
+        element.textContent = content;
         element.style.color = color;
     }
 }
@@ -21,10 +25,10 @@ function agregarAmigo() {
 
     if (/\d/.test(nombre.value) || nombre.value.trim() === "" || /[^A-Za-z\s]/.test(nombre.value)) {
 
-        changes("amigo","Introduzca un valor válido", "rgba(139, 0, 0)");
+        changes("amigo","Introduzca un valor válido", "rgba(139, 0, 0, 1)");
     } else if (friendsList.some(friend => friend.toLowerCase() === nombreMin)) {
         
-        changes("amigo","El nombre ya se encuentra en la lista","rgba(34, 113, 179)");
+        changes("amigo","El nombre ya se encuentra en la lista","rgba(34, 113, 179, 1)");
     } else {
 
         changes("amigo","¡Muy bien!", "green");
@@ -42,3 +46,18 @@ function agregarAmigo() {
     }
     return;
 }
+
+function sortearAmigo() {
+    console.log("Sortear pe");
+    if (friendsList.length < 2) {
+        changes("subtitle","Debe haber mínimo 2 nombres para jugar","red");
+        return;
+    }
+
+        changes("subtitle","Digite el nombre de sus amigos","rgba(75, 105, 253, 1)");
+        let amigo = friendsList[Math.floor(Math.random() * friendsList.length)];
+        changes("resultado",`El amigo secreto es: ${amigo}`,"green");
+} 
+
+
+
