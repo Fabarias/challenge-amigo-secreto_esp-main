@@ -35,8 +35,8 @@ function agregarAmigo() {
 
         const ul = document.getElementById("listaAmigos");
         const li = document.createElement("li");
+        
         let lista = document.createTextNode(nombre.value);
-
         li.appendChild(lista);
         ul.appendChild(li);
 
@@ -59,5 +59,10 @@ function sortearAmigo() {
         changes("resultado",`El amigo secreto es: ${amigo}`,"green");
 } 
 
-
+function reiniciarLista() {
+    let ul = document.getElementById("listaAmigos");
+    ul.textContent = "";
+    friendsList.length = 0;
+    return;
+} 
 
